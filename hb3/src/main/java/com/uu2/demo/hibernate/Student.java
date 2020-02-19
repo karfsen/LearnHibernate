@@ -1,10 +1,11 @@
-package com.uu2.demo.entity;
+package com.uu2.demo.hibernate;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="student")
 public class Student {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
@@ -19,8 +20,7 @@ public class Student {
     @Column(name="email")
     private String email;
 
-    public Student(){
-
+    public Student() {
     }
 
     public Student(String firstName, String lastName, String email) {
@@ -28,6 +28,7 @@ public class Student {
         this.lastName = lastName;
         this.email = email;
     }
+
 
     public int getId() {
         return id;
@@ -59,5 +60,15 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
